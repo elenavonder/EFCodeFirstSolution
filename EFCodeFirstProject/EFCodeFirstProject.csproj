@@ -6,6 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201012180510_added order class.cs" />
+    <Compile Remove="Migrations\20201012180510_added order class.Designer.cs" />
+    <Compile Remove="Migrations\20201012180755_added orders table.cs" />
+    <Compile Remove="Migrations\20201012180755_added orders table.Designer.cs" />
+    <Compile Remove="Migrations\20201012184211_for the OrderLine table.cs" />
+    <Compile Remove="Migrations\20201012184211_for the OrderLine table.Designer.cs" />
+    <Compile Remove="Migrations\20201012184311_the orderline table.cs" />
+    <Compile Remove="Migrations\20201012184311_the orderline table.Designer.cs" />
+    <Compile Remove="Migrations\20201012185558_remove-migration.cs" />
+    <Compile Remove="Migrations\20201012185558_remove-migration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="microsoft.entityframeworkcore.SqlServer" Version="3.1.8" />
     <PackageReference Include="microsoft.entityframeworkcore.tools" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>

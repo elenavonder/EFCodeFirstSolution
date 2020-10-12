@@ -7,8 +7,9 @@ namespace EFCodeFirstProject
 {
     public class AppDbContext : DbContext 
     {
-
-        //DbSetCommands/ property
+        //must do DbSet to migrate tables to SQL
+        public virtual DbSet<OrderLine> OrderLines { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
 
         //constructor needs to be made to connect to SQL Database HAVE TO CALL
