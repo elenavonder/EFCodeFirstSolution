@@ -7,6 +7,7 @@ namespace EFCodeFirstProject
 {
     public class AppDbContext : DbContext 
     {
+
         //DbSetCommands/ property
         public virtual DbSet<Customer> Customers { get; set; }
 
@@ -34,9 +35,15 @@ namespace EFCodeFirstProject
         }
         //table with no foreign key should be done first
         protected override void OnModelCreating (ModelBuilder builder)
-        {
-            
+        {//fluent api goes in this METHOD
+            //parameter name must go first. 
+            //if you have 5 tables, need 5 statement blocks
+            builder.Entity<Customer>(e =>
+            {//put whatever you need to do in table in brackets
+                e.HasIndex(x => x.Code).IsUnique(true);
+                //stating we want ^^ SQL to put an index on Code column/ can be duplicated
+                //putting .IsUnique, keeps it from being duplicated
+            });
         }
-
     }
 }
