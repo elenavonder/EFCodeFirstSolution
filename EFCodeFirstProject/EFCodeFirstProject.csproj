@@ -16,6 +16,8 @@
     <Compile Remove="Migrations\20201012184311_the orderline table.Designer.cs" />
     <Compile Remove="Migrations\20201012185558_remove-migration.cs" />
     <Compile Remove="Migrations\20201012185558_remove-migration.Designer.cs" />
+    <Compile Remove="Migrations\20201012190614_Orderline Class.cs" />
+    <Compile Remove="Migrations\20201012190614_Orderline Class.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

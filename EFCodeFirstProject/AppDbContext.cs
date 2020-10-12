@@ -47,6 +47,12 @@ namespace EFCodeFirstProject
                 //stating we want ^^ SQL to put an index on Code column/ can be duplicated
                 //putting .IsUnique, keeps it from being duplicated
             });
+            //using fluent-api to make description not null
+            //pro of fluent-api is that you can do anything you need to for entity framework
+            builder.Entity<Order>(e =>
+            {
+                e.Property(o => o.Description).IsRequired().HasMaxLength(50);
+            });
         }
     }
 }

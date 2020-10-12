@@ -42,10 +42,32 @@ namespace EFCodeFirstProject
             Console.WriteLine($"{order.Id}|{order.Description}|{order.Total}|{order.Created}|{order.CustomerId}");
 
             //creating new OrderLine
-            var ordlin = new OrderLine() 
-            { 
-               
+            var ordline = new OrderLine()
+            {
+                Product = "Echo",
+                Price = 100,
+                Quality = 3,
+                OrderId = 1
             };
+            _context.OrderLines.Add(ordline);
+            _context.SaveChanges();
+            //joining all three tables
+            var OrdAll = from o in _context.Orders
+                         join c in _context.Customers
+                         on o.CustomerId equals c.Id
+                         join l in _context.OrderLines
+                         on o.Id equals l.OrderId
+                         select new
+                         {
+                             OrderId = o.Id,
+                             Desc = o.Description,
+                             Customer = c.Name,
+                             Product = l.Product,//Product is greyed out b/c it doesn't have to be in the code
+                             Price = l.Price,//Price can be erased and simplify the code
+                             Quantity = l.Quality,
+                             LineTotal = l.Price * l.Quality
+                         };
+
         }
     }
 }
