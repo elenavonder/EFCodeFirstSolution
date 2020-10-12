@@ -30,7 +30,7 @@ namespace EFCodeFirstProject
             if (!options.IsConfigured)
             {
                 options.UseSqlServer("server=localhost\\sqlexpress;database=CustOrdDb;trusted_connection=true");
-                                //this is the connection string^^
+                             //this is the connection string^^
             }
         }
         //table with no foreign key should be done first
@@ -39,8 +39,10 @@ namespace EFCodeFirstProject
             //parameter name must go first. 
             //if you have 5 tables, need 5 statement blocks
             builder.Entity<Customer>(e =>
-            {//put whatever you need to do in table in brackets
-                e.HasIndex(x => x.Code).IsUnique(true);
+            {//e represents the table / class
+                //put whatever you need to do in table in brackets
+                e.HasIndex(x => x.Code).IsUnique();
+                //x = column
                 //stating we want ^^ SQL to put an index on Code column/ can be duplicated
                 //putting .IsUnique, keeps it from being duplicated
             });

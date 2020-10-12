@@ -12,7 +12,7 @@ namespace EFCodeFirstProject
             //creating new instance (cust) in Customer from the properties of the Customer class
             var cust = new Customer()
             {
-                Name = "MAX Technical Training", Active = true, Sales = 1000, Created = DateTime.Now
+                Name = "MAX Technical Training", Code = "MAX", Active = true, Sales = 1000, Created = DateTime.Now
             };
             //adding the cust to the customer table
             _context.Customers.Add(cust);
@@ -23,7 +23,7 @@ namespace EFCodeFirstProject
             foreach(var c in custs)
             {
                 //will work if you keep adding more customers
-                Console.WriteLine($"{c.Id}|{c.Name}|{c.Active}|{c.Sales}|{c.Created}");
+                Console.WriteLine($"{c.Id}|{c.Name}|{c.Active}|{c.Sales}|{c.Created}|{c.Code}");
             }
         }
     }
